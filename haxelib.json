@@ -1,0 +1,11 @@
+{
+  "name": "mxhx-manifest",
+  "url": "https://mxhx.dev/",
+  "license": "Apache",
+  "tags": ["xml", "mxhx", "markup", "gui"],
+  "description": "Parses MXHX manifest files that map namespaced components to fully-qualified Haxe class names",
+  "version": "1.0.0",
+  "classPath": "src",
+  "contributors": ["bowlerhat"],
+  "releasenote": "Initial release"
+}
