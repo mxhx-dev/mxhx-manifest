@@ -23,7 +23,7 @@ class MXHXManifestTools {
 	/**
 		Parses an MXHX manifest file represented as a string.
 	**/
-	public static function parseManifestString(manifestText:String):Map<String, String> {
+	public static function parseManifestString(manifestText:String):Map<String, MXHXManifestEntry> {
 		var xml:Xml = null;
 		try {
 			xml = Xml.parse(manifestText);
@@ -36,13 +36,17 @@ class MXHXManifestTools {
 	/**
 		Parses an MXHX manifest file represented as XML.
 	**/
-	public static function parseManifestXml(manifest:Xml):Map<String, String> {
+	public static function parseManifestXml(manifest:Xml):Map<String, MXHXManifestEntry> {
 		try {
-			var mappings:Map<String, String> = [];
+			var mappings:Map<String, MXHXManifestEntry> = [];
 			for (componentXml in manifest.firstElement().elementsNamed("component")) {
 				var xmlName = componentXml.get("id");
 				var qname = componentXml.get("class");
-				mappings.set(xmlName, qname);
+				var params:Array<String> = null;
+				if (componentXml.exists("params")) {
+					params = componentXml.get("params").split(",");
+				}
+				mappings.set(xmlName, new MXHXManifestEntry(xmlName, qname, params));
 			}
 			return mappings;
 		} catch (e:Dynamic) {
@@ -54,7 +58,7 @@ class MXHXManifestTools {
 	/**
 		Parses an MXHX manifest file at the specified path.
 	**/
-	public static function parseManifestFile(filePath:String):Map<String, String> {
+	public static function parseManifestFile(filePath:String):Map<String, MXHXManifestEntry> {
 		if (!sys.FileSystem.exists(filePath)) {
 			throw 'Manifest file not found: ${filePath}';
 		}
