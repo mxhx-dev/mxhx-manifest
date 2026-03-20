@@ -10,7 +10,7 @@ Parses MXHX manifest files that map namespaced components to fully-qualified Hax
 
 Install [Haxe](https://haxe.org/download/).
 
-Open a terminal, and then install Feathers UI using the following command:
+Open a terminal, and then install the MXHX Manifest library using the following command:
 
 ```sh
 haxelib install mxhx-manifest
