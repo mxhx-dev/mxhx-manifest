@@ -1,6 +1,6 @@
 # MXHX Manifest
 
-Parses MXHX manifest files that map namespaced components to fully-qualified Haxe class names
+Parses MXHX manifest files that map namespaced components to fully-qualified Haxe class names.
 
 ## Minimum Requirements
 
@@ -8,10 +8,12 @@ Parses MXHX manifest files that map namespaced components to fully-qualified Hax
 
 ## Installation
 
-This library is not yet available on Haxelib, so you'll need to install it from Github.
+Install [Haxe](https://haxe.org/download/).
+
+Open a terminal, and then install Feathers UI using the following command:
 
 ```sh
-haxelib git mxhx-manifest https://github.com/mxhx-dev/mxhx-manifest.git
+haxelib install mxhx-manifest
 ```
 
 ## Project Configuration
